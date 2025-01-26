@@ -1,0 +1,9 @@
+# Djangoフレームワーク
+Django>=4.0,<5.0
+
+# Python-JS連携やフロントエンドの開発に役立つ場合に追加
+# Django用のdebugツール（オプション）
+django-debug-toolbar>=3.2,<4.0
+
+# セキュリティ対策やフォーム用（必要に応じて）
+django-crispy-forms>=2.0,<3.0

@@ -1,0 +1,10 @@
+
+
+services:
+  web:
+    build: .
+    container_name: django_app
+    ports:
+      - "8005:8005"  # コンテナの8005番ポートをホストの8005番ポートにマッピング
+    volumes:
+      - .:/app  # ホストディレクトリをコンテナの/appにマウント
