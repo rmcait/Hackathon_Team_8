@@ -57,10 +57,9 @@ Grade_kanji_dict = {
     "値宙忠著庁頂潮賃痛展討党糖届難乳認納脳派拝背肺俳班晩否批秘腹奮並陛閉片補暮宝訪亡忘棒枚幕密盟模訳郵優幼欲翌乱卵覧裏律臨朗論"
 }
 
-"""
+
 text="部首は頁部に属し、画数は２６画、漢字検定は配当外の漢字です。読み方は、ユです。"
 kanji_list = text_to_kanji(text)
 classified_result = classify_kanji_by_grade(kanji_list)
 print("抽出された漢字:", kanji_list)
 print("分類結果:", json.dumps(classified_result, ensure_ascii=False))
-"""
