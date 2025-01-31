@@ -58,8 +58,10 @@ Grade_kanji_dict = {
 }
 
 
-text="部首は頁部に属し、画数は２６画、漢字検定は配当外の漢字です。読み方は、ユです。"
+"""
+text="Unicode（ユニコード）とは、世界中の言語や記号に番号を割り当てて定義した文字コードの規格です。"
 kanji_list = text_to_kanji(text)
 classified_result = classify_kanji_by_grade(kanji_list)
 print("抽出された漢字:", kanji_list)
 print("分類結果:", json.dumps(classified_result, ensure_ascii=False))
+"""
