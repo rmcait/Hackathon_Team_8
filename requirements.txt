@@ -7,3 +7,12 @@ django-debug-toolbar>=3.2,<4.0
 
 # セキュリティ対策やフォーム用（必要に応じて）
 django-crispy-forms>=2.0,<3.0
+
+# 画像処理のライブラリ
+Pillow>=9.0,<10.0
+pytesseract>=0.3, <1.0
+
+# openAIのAPI
+openai
+# 環境変数を.envから読み込む
+python-dotenv
