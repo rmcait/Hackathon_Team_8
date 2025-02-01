@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="{% static 'js/carousel.js' %}" defer></script>
+    <title>画像OCRアップロード</title>
 </head>
 <body>
-    <img src="{% static 'img/InitialIcon.webp' %}" alt="Initial Icon">
-
-    <div class="carousel">
-        <a href="{% url 'upload_image' %}" class="item">1</a>
-        <div class="item">2</div>
-        <div class="item">3</div>
-        <div class="item">4</div>
-    </div>
-    <button id="next">▶</button>
-
+    <h2>画像をアップロード</h2>
+    <form action="{% url 'process_image' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">アップロード</button>
+    </form>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR 結果</title>
+</head>
+<body>
+    <h2>OCR 結果</h2>
+    {% if image_url %}
+        <img src="{{ image_url }}" alt="アップロード画像" width="300">
+    {% endif %}
+    <p><strong>抽出されたテキスト:</strong></p>
+    <p>{{ ocr_text }}</p>
+
+    <a href="{% url 'upload_image' %}">別の画像をアップロード</a>
+
+    
+</body>
+</html>
