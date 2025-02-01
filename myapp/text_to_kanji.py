@@ -2,7 +2,7 @@ import json
 import re
 
 #テキストから漢字を抽出してリストとして返す,[一-龥]はUnicodeの漢字↓
-def text_to_kanji(text):
+def text_to_kanjii(text):
     return re.findall(r'[一-龥]',text)
 
 

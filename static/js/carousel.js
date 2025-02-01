@@ -46,26 +46,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     console.log("取得した要素:", uploadLink); // 要素の取得状況を確認
 
-    if (uploadLink) {
-        uploadLink.addEventListener("click", function(event) {
-            event.preventDefault(); // 直接のページ遷移を防ぐ
-
-            const targetUrl = this.href; // 遷移先のURL
-            console.log("遷移先のURL:", targetUrl); // 遷移先URLを確認
-
-            // `.item` を拡大＆四角にする
-            uploadLink.classList.add("expanding");
-
-            // `upload.html` の内容を取得して `.item` の中に埋め込む
-            fetch(targetUrl)
-                .then(response => response.text())
-                .then(html => {
-                    uploadLink.innerHTML = html; // `.item` 内に `upload.html` を挿入
-                })
-                .catch(error => console.error("Error:", error));
-        });
-    } else {
-        console.warn("⚠️ 指定した要素 (.item[href]) が見つかりませんでした！");
-    }
-
+    
 });

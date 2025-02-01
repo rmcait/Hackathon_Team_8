@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
+from .text_to_kanji import text_to_kanjii
 from dotenv import load_dotenv
 
 
@@ -97,9 +98,11 @@ def process_image(request):
         file_path = os.path.join("media", file_name)
 
         # OCRを実行
-        text = analyze_image(file_path)
+        ocr_text = analyze_image(file_path)
+        
+        text_to_kanji = text_to_kanjii(ocr_text)
 
         # OCR結果を `result.html` に渡す
-        return render(request, "result.html", {"ocr_text": text, "image_url": f"/media/uploads/{file.name}"})
+        return render(request, "result.html", {"ocr_text": text_to_kanji, "image_url": f"/media/uploads/{file.name}"})
 
     return redirect("upload_image")
