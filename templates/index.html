@@ -10,15 +10,43 @@
     <script src="{% static 'js/carousel.js' %}" defer></script>
 </head>
 <body>
-    <img src="{% static 'img/InitialIcon.webp' %}" alt="Initial Icon">
+
+    <!-- 星をランダム配置 -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <div class="navbar">
+        <div class="nav-left">目指せ！漢字マスター！</div>
+        <div class="nav-center">星空漢字探検</div>
+        <div class="nav-right">
+            <span>経験値:</span>
+            <div class="exp-star-container">
+                <div class="exp-star"></div>
+                <div class="exp-star"></div>
+                <div class="exp-star"></div>
+                <div class="exp-star"></div>
+            </div>
+        </div>
+    </div>
 
     <div class="carousel">
         <a href="{% url 'upload_image' %}" class="item">写真から学ぼう！</a>
-        <div class="item">2</div>
+        <div class="item">漢字クイズ</div>
         <div class="item">3</div>
         <div class="item">4</div>
     </div>
-    <button id="next">▶</button>
+
+    <div class="blinking-arrow">▼</div>
+    <div class="blinking-arrow-left">▼</div> <!-- 左下向き -->
+
+    <div class="group-name">
+        <h4>Team8_即席: ナントカナール</h4>
+    </div>
+
 
 </body>
 </html>

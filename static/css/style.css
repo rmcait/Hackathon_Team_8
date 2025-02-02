@@ -7,7 +7,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     justify-content: center;
     align-items: center;
     background: url("/static/img/space_bg.jpg") center/cover no-repeat;
@@ -21,6 +21,109 @@ h1 {
     margin: 2rem 0;
 }
 
+.navbar {
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to right, #2580b3, #1b4f72); /* グラデーション */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.nav-left, .nav-right {
+    width: 30%;
+    height: 100px;
+    background-color: #8964f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 左側のナビゲーション（左端は直角、右下が台形） */
+.nav-left {
+    clip-path: polygon(0% 0%, 100% 0%, 80% 100%, 0% 100%);
+}
+
+/* 右側のナビゲーション（右端は直角、左下が台形） */
+.nav-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%);
+}
+
+/* 星アイコン（経験値） */
+/* 経験値の星コンテナ */
+.exp-star-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 5%;
+    padding-bottom: 8%;
+}
+
+/* 星アイコン（CSSで作成） */
+.exp-star {
+    width: 0;
+    height: 0;
+    margin: 10px;
+    display: inline-block;
+    position: relative;
+    color: #524f4f; /* 初期の灰色 */
+    font-size: 24px; /* 星の大きさ */
+    transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+/* 星の形 */
+.exp-star::before,
+.exp-star::after {
+    content: "★";
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* 光る星（経験値アップ） */
+.exp-star.active {
+    color: gold;
+    transform: scale(1.3);
+}
+.nav-center {
+    flex: 1;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+/* 星のアニメーション */
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: twinkle 2s infinite;
+}
+
+/* 星をランダム配置 */
+.star:nth-child(1) { width: 8px; height: 3px; top: 10%; left: 20%; }
+.star:nth-child(2) { width: 8px; height: 2px; top: 30%; left: 40%; }
+.star:nth-child(3) { width: 8px; height: 4px; top: 50%; left: 10%; }
+.star:nth-child(4) { width: 8px; height: 2px; top: 80%; left: 60%; }
+.star:nth-child(5) { width: 8px; height: 3px; top: 70%; left: 80%; }
+.star:nth-child(6) { width: 8px; height: 8px; top: 20%; left: 90%; }
+
+
 .carousel {
     width: 100%;
     height: 750px;
@@ -31,9 +134,8 @@ h1 {
 
 .item {
     position: absolute;
-    width: 250px;
-    height: 250px;
-    background-color: #3498db;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -41,9 +143,39 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     transition: transform 0.5s, width 0.5s, height 0.5s, border-radius 0.5s;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     overflow: hidden; /* 中のコンテンツがはみ出ないように */
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+.item:nth-child(1) {
+    background-image: url("/static/img/moon.png");
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.item:nth-child(2) {
+    background-image: url("/static/img/jupiter.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.item:nth-child(3) {
+    background-image: url("/static/img/mars.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.item:nth-child(4) {
+    background-image: url("/static/img/earth.png");
+    background-size: cover;
+    background-position: center;
 }
 
 .item.expanding {
@@ -61,9 +193,45 @@ h1 {
     background-color: white;
 }
 
-button {
-    margin-top: 20px;
-    font-size: 18px;
-    padding: 10px;
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking-arrow {
+    font-size: 60px; /* 矢印のサイズ */
+    color: rgb(232, 119, 26); /* 矢印の色 */
+    animation: blink 1s infinite; /* 1秒で点滅を繰り返す */
+    
+    position: fixed; /* 画面に固定 */
+    bottom: 35%;  /* 下から20px */
+    right: 22%;   /* 右から20px */
     cursor: pointer;
+
+    transform: rotate(230deg); /* 矢印を右上に回転 */
+}
+
+/* 左下に反転配置 */
+.blinking-arrow-left {
+    font-size: 60px; /* 矢印のサイズ */
+    color: rgb(232, 119, 26);  /* 矢印の色 */
+    animation: blink 1s infinite; /* 1秒で点滅を繰り返す */
+    
+    position: fixed; /* 画面に固定 */
+    bottom: 35%;  /* 下から45% */
+    left: 22%;   /* 左から22% */
+    cursor: pointer;
+
+    transform: rotate(-230deg); /* 反転して左下に向ける */
+}
+
+.group-name {
+    position: fixed;
+    width: 20%;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #eaf1f5, #6e7072); /* グラデーション */
+    bottom: 1%;
+    right: 1%;
+    border-radius: 10px;
 }

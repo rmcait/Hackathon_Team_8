@@ -1,0 +1,96 @@
+/* 全体のリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 背景 */
+body {
+    background: linear-gradient(to bottom, #0a0a2a, #020214); /* 宇宙っぽいグラデーション */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 星のアニメーション */
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: twinkle 2s infinite;
+}
+
+/* 星をランダム配置 */
+.star:nth-child(1) { width: 3px; height: 3px; top: 10%; left: 20%; }
+.star:nth-child(2) { width: 2px; height: 2px; top: 30%; left: 40%; }
+.star:nth-child(3) { width: 4px; height: 4px; top: 50%; left: 10%; }
+.star:nth-child(4) { width: 2px; height: 2px; top: 80%; left: 60%; }
+.star:nth-child(5) { width: 3px; height: 3px; top: 70%; left: 80%; }
+.star:nth-child(6) { width: 2px; height: 2px; top: 20%; left: 90%; }
+
+/* タイトル */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.7);
+}
+
+/* フォーム全体のスタイル */
+form {
+    background: rgba(255, 255, 255, 0.1); /* ガラスモーフィズム */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+}
+
+/* ファイル選択ボタン */
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* アップロードボタン */
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to right, #3498db, #1b4f72);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(52, 152, 219, 0.8);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to right, #1b4f72, #3498db);
+    box-shadow: 0px 0px 15px rgba(52, 152, 219, 1);
+    transform: scale(1.05);
+}

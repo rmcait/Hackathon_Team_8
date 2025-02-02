@@ -101,6 +101,8 @@ def process_image(request):
         ocr_text = analyze_image(file_path)
         
         text_to_kanji = text_to_kanjii(ocr_text)
+        
+        
 
         # OCR結果を `result.html` に渡す
         return render(request, "result.html", {"ocr_text": text_to_kanji, "image_url": f"/media/uploads/{file.name}"})

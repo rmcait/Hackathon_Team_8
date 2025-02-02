@@ -48,5 +48,5 @@ def get_kanji_info(kanji):
 
 
 #ひとまずはinputで漢字を受け取るようにしてあります。
-kanji = input("調べたい漢字を入力してください")
-get_kanji_info(kanji)
+# kanji = input("調べたい漢字を入力してください")
+# get_kanji_info(kanji)

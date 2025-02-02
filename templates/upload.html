@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upload.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="{% static 'js/carousel.js' %}" defer></script>
     <title>画像OCRアップロード</title>
 </head>
 <body>
-    <h2>画像をアップロード</h2>
+    <!-- 星をランダム配置 -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <h2>🚀 画像をアップロードして漢字を練習しよう！</h2>
+
     <form action="{% url 'process_image' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="image" accept="image/*" required>
-        <button type="submit">アップロード</button>
+        <input type="file" name="image" accept="image/*" placeholder=required>
+        <button type="submit">✨ アップロード ✨</button>
     </form>
 </body>
 </html>
